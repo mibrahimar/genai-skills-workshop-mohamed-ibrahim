@@ -1,0 +1,46 @@
+{
+  "name": "d2a3288e-205f-4286-836c-090a84dfdeab",
+  "displayName": "FAQ Data Store",
+  "description": "Use this data store to get information about Aurora Bay, Alaska",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "UNSTRUCTURED",
+      "dataStore": "projects/569779670169/locations/us/collections/default_collection/dataStores/aurora-bay-faqs_1750072684044",
+      "documentProcessingMode": "DOCUMENTS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1750072714,
+        "nanos": 392185000
+      },
+      "displayName": "Aurora Bay FAQs",
+      "dialogflowAddTime": {
+        "seconds": 1750072797,
+        "nanos": 108000000
+      }
+    } ],
+    "models": {
+      "summarizationModel": {
+      
+      },
+      "rewriterModel": {
+      
+      }
+    },
+    "fallbackPrompt": {
+    
+    },
+    "groundingSettings": {
+    
+    },
+    "payloadSettings": {
+    
+    },
+    "voiceModeSettings": {
+    
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}
