@@ -1,4 +1,9 @@
-from langchain_google_vertexai import VertexAIEmbeddings, ChatVertexAI
+from langchain_google_vertexai import (
+    VertexAIEmbeddings,
+    ChatVertexAI,
+    HarmBlockThreshold,
+    HarmCategory,
+)
 from langchain_google_community import BigQueryVectorStore
 
 from langgraph.graph import MessagesState
@@ -28,6 +33,15 @@ llm = ChatVertexAI(
     max_retries=2,
     stop=None,
 )
+
+# Safety filter of Gemini
+llm.safety_settings = {
+    HarmCategory.HARM_CATEGORY_UNSPECIFIED: HarmBlockThreshold.BLOCK_NONE,
+    HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+    HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+    HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+    HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+}
 
 
 class OverallState(MessagesState):
